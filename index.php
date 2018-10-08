@@ -39,7 +39,7 @@ $conn= mysqli_connect('localhost',"root","Pasqua1506","DBClienti");
 $strSQL= "select * from user;";
 $query= mysqli_query($conn,$strSQL);
 while($row= mysqli_fetch_assoc($query)){
-    print_r($row);
+    echo($row['email']);
 }
 IF(ISSET($_POST['login'])){
 	$email = $_POST['email'];
