@@ -36,7 +36,7 @@
 <?php
 //include "db_con.php";
 $conn= mysqli_connect('localhost',"root","Pasqua1506","DBClienti");
-$strSQL= "select * from user;"
+$strSQL= "select * from user;";
 $query= mysqli_query($conn,$strSQL);
 while($row= mysqli_fetch_assoc($query)){
     print_r($row);
