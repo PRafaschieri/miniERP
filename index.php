@@ -15,7 +15,12 @@
 
 </head>
 <body>
-
+<?php $conn= mysqli_connect('localhost',"root","Pasqua1506","DBClienti");
+$strSQL= "select * from user;";
+$query= mysqli_query($conn,$strSQL);
+while($row= mysqli_fetch_assoc($query)){
+    echo($row['email']);
+}?>
 <div class="container">
         <div class="card card-container">
             <img id="profile-img" class="profile-img-card" src="img/avatar_2x.png" />
@@ -35,13 +40,8 @@
 </html>
 <?php
 //include "db_con.php";
-$conn= mysqli_connect('localhost',"root","Pasqua1506","DBClienti");
-$strSQL= "select * from user;";
-$query= mysqli_query($conn,$strSQL);
-while($row= mysqli_fetch_assoc($query)){
-    echo($row['email']);
-}
-IF(ISSET($_POST['login'])){
+
+/*IF(ISSET($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
@@ -57,5 +57,5 @@ IF(ISSET($_POST['login'])){
 	}else{
 		echo "<script language=\"javascript\">alert(\"Email o password non valida\");document.location.href='index.php';</script>";
 	}
-}
+}*/
 ?>
