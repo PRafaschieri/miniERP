@@ -34,12 +34,18 @@
 </body>
 </html>
 <?php
-include "db_con.php";
+//include "db_con.php";
+$conn= mysqli_connect('localhost',"root","Pasqua1506","DBClienti");
+$strSQL= "select * from user;"
+$query= mysqli_query($conn,$strSQL);
+while($row= mysqli_fetch_assoc($query)){
+    print_r($row);
+}
 IF(ISSET($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-	$cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
+    $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
 	$data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
 	IF($cek > 0)
 	{
