@@ -22,10 +22,10 @@
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin" action="" method="POST">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>
                 <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
                 <br>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit"  name="login">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit"  name="login">Accedi</button>
             </form>
             
         </div>
@@ -39,17 +39,17 @@ IF(ISSET($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-	$cek = mysql_num_rows(mysql_query("SELECT * FROM user_login WHERE email='$email' AND password='$password'"));
-	$data = mysql_fetch_array(mysql_query("SELECT * FROM user_login WHERE email='$email' AND password='$password'"));
+	$cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
+	$data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
 	IF($cek > 0)
 	{
 		
 		session_start();
 		$_SESSION['email'] = $data['email'];
-		$_SESSION['name'] = $data['full_name'];
-		echo "<script language=\"javascript\">alert(\"welcome \");document.location.href='index.php';</script>";
+		$_SESSION['name'] = $data['firstName'];
+		echo "<script language=\"javascript\">alert(\"welcome \");document.location.href='userpage.php';</script>";
 	}else{
-		echo "<script language=\"javascript\">alert(\"Invalid username or password\");document.location.href='login.php';</script>";
+		echo "<script language=\"javascript\">alert(\"Email o password non valida\");document.location.href='index.php';</script>";
 	}
 }
 ?>
