@@ -23,10 +23,12 @@ IF(ISSET($_SESSION['name'])){
 <div class="navbar navbar-default navbar-static-top" role="navigation">
 	<div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">Home </a>
-				<a class="navbar-brand" href="#">Navbar 2</a>
-				<a class="navbar-brand" href="#">Navbar 3</a>
-				<a class="navbar-brand" href="#">Navbar 4</a>
+                <a class="navbar-brand" href="userpage.php">Home </a>
+				<a class="navbar-brand" href="contattailwebmaster.html">Contatti</a>
+				<a class="navbar-brand" href="#">Report</a>
+					<ul>
+						<li>prova</li>
+					</ul>
 				<a class="navbar-brand pull-right" href="logout.php?destroy"> <span class="glyphicon glyphicon-off"></span> Logout </a>
 				<a class="navbar-brand pull-right"><span class="glyphicon glyphicon-user"></span> <?=$_SESSION['name'];?> </a>
             </div>
@@ -51,6 +53,6 @@ ante sem suscipit nulla, congue suscipit ipsum tellus commodo ipsum. Sed pharetr
 
 <?php 
 }else{
-	echo "<script language=\"javascript\">alert(\"Please login\");document.location.href='login.php';</script>";	
+	echo "<script language=\"javascript\">alert(\"Per vedere questa pagina devi effettuare il login\");document.location.href='index.php';</script>";	
 }
 ?>
