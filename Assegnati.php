@@ -18,7 +18,12 @@ IF(ISSET($_SESSION['name'])){
 <script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
 
 </head>
-
+<style>
+         
+         td {
+            border-bottom: 1px solid #ddd;
+        }
+</style>"
 <body>
 
 <div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -61,7 +66,7 @@ IF(ISSET($_SESSION['name'])){
          
                 
          ?>
-     <table>
+     <table width="100%" border="1px">
      	<tr>
 		
             <td>
