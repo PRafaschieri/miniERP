@@ -34,26 +34,27 @@ IF(ISSET($_SESSION['name'])){
 </div>
 
 <div class="container">
-
-    <?php
-        
-        $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
-        $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE (denied='0') & (email='".$_SESSION['email']."')";
-        echo($strSQL);
-        $query= mysqli_query($conn,$strSQL);
-        $numeroRecord=mysqli_num_rows($query);
-        echo($numeroRecord);
-       	while($row=mysqli_fetch_assoc($query)){?>
-		          <tr>
-                      <td><p><?php echo($row['email']);?></p></td> 
-                      <td><p><?php echo($row['firstName']);?></p></td>
-                      <td><p><?php echo($row['lastName']);?></p></td>
-					  
+	<h2>Clicca sul Report di tuo Interesse</h2>
+	<ul>
+        <?php
+            
+            $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
+            $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE (denied='0') & (email='".$_SESSION['email']."')";
+            echo($strSQL);
+            $query= mysqli_query($conn,$strSQL);
+            $numeroRecord=mysqli_num_rows($query);
+            echo($numeroRecord);
+            
+           	while($row=mysqli_fetch_assoc($query)){?>
+    		          
+                          <li><a href="<?php echo($row['applicazione']."php") ?>">Report <p><?php echo($row['applicazione']);?></p></a></li> 
+                          
+    					  
+                          
                       
-                  </tr>
          <?php
-       	    
-    		}
+           	    
+            }
             mysqli_close($conn);    
          ?>	
 </div>
