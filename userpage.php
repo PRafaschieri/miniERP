@@ -38,7 +38,7 @@ IF(ISSET($_SESSION['name'])){
     <?php
         
         $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
-        $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE denied=0 & email='".$_SESSION['email']."'";
+        $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE (denied='0') & (email='".$_SESSION['email']."')";
         echo($strSQL);
         $query= mysqli_query($conn,$strSQL);
         $numeroRecord=mysqli_num_rows($query);
