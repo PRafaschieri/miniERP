@@ -35,6 +35,7 @@ IF(ISSET($_SESSION['name'])){
 <div class="container">
 
     <?php
+        echo $_POST['email'];
         $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
         $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE denied=0 & email='".$_POST['email']."'";
         $query= mysqli_query($conn,$strSQL);
