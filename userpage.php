@@ -1,6 +1,7 @@
 <?php 
 session_start();
 IF(ISSET($_SESSION['name'])){
+    
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -35,9 +36,9 @@ IF(ISSET($_SESSION['name'])){
 <div class="container">
 
     <?php
-        echo $_POST['email'];
+        
         $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
-        $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE denied=0 & email='".$_POST['email']."'";
+        $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE denied=0 & email='".$_SESSION['email']."'";
         $query= mysqli_query($conn,$strSQL);
         echo $strSQL;
        	while($row= mysqli_fetch_assoc($query)){
