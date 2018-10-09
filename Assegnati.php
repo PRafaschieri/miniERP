@@ -66,6 +66,7 @@ IF(ISSET($_SESSION['name'])){
            	$query= mysqli_query($conn,$SQLdb);
            	$numeroRecord=mysqli_num_rows($query);
            	print_r($conn);
+           	echo($SQLdb);
          
                 
          ?>
