@@ -63,7 +63,7 @@ IF(ISSET($_POST['login'])){
 		echo "<script language=\"javascript\">alert(\"Email o password non valida\");document.location.href='index.php';</script>";
 	}
 }
-?>
+?> 
 
 </body>
 </html>
