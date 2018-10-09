@@ -50,17 +50,18 @@ IF(ISSET($_SESSION['name'])){
             
             
            	$row=mysqli_fetch_assoc($query);
-           	$url="'".$row['ipUrl']."'";
+           	$url=$row['ipUrl'];
            	$nomeDB="'".$row['nome']."'";
            	$user="'".$row['username']."'";
            	$psw="'".$row['password']."'";
            	$SQLdb=$row['query'];  
-           	echo $SQLdb;
+           
     		          
            	mysqli_close($conn);
                           
     	    //Apro la connessione al DB del Report				  
-           	$conn= mysqli_connect($url,	$user, $psw,$nomeDB);
+           	//$conn= mysqli_connect($url,	$user, $psw,$nomeDB);
+           	$conn= mysqli_connect(dieffevtiger-read-replica.crcru1sebvf3.eu-central-1.rds.amazonaws.com, odbcdieffeuser, odbc, diffe_vtiger_2017);
            	$query= mysqli_query($conn,$SQLdb);
            	$numeroRecord=mysqli_num_rows($query);
          
