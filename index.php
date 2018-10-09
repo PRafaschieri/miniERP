@@ -56,7 +56,7 @@ IF(ISSET($_POST['login'])){
 		echo("session");
 		echo "<script language=\"javascript\">document.location.href='userpage.php';</script>";
 	}else{
-	    
+	    echo ($email.$password);
 		echo "<script language=\"javascript\">alert(\"Email o password non valida\");document.location.href='index.php';</script>";
 	}
 }
