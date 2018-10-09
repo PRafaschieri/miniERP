@@ -9,7 +9,7 @@ IF(ISSET($_SESSION['name'])){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-<title>Bootstrap Login</title>
+<title><?=$_SESSION['name'];?></title>
 <!-- bootstrap-3.3.7 -->
 <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
 <script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -40,14 +40,14 @@ IF(ISSET($_SESSION['name'])){
             
             $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
             $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE (denied='0') & (email='".$_SESSION['email']."')";
-            echo($strSQL);
+
             $query= mysqli_query($conn,$strSQL);
             $numeroRecord=mysqli_num_rows($query);
-            echo($numeroRecord);
+            
             
            	while($row=mysqli_fetch_assoc($query)){?>
     		          
-                          <li><a href="<?php echo($row['applicazione']."php") ?>">Report <p><?php echo($row['applicazione']);?></p></a></li> 
+                          <li><a href="<?php echo($row['nomeReport']."php") ?>">Report <?php echo($row['nomeReport']);?></a></li> 
                           
     					  
                           
