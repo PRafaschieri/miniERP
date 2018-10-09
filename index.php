@@ -33,12 +33,9 @@
 
 
 <?php
-
-include "db_con.php";
-/*$conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
-$strSQL= "select * from user";
+$conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
 echo("sono nel PHP");
-$query= mysqli_query($conn,$strSQL);*/
+
 /*while($row= mysqli_fetch_assoc($query)){
     echo("sono nella query");
     echo($row['email']);
@@ -47,9 +44,11 @@ IF(ISSET($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	echo("sono nel login");
-    $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
+	$strSQL= "select * from user where email='".$email"'";
+	$query= mysqli_query($conn,$strSQL);
+    $cek = mysql_num_rows($query);
     echo($cek);
-	$data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
+    $data = mysqli_fetch_assoc($query);
 	echo($data);
 	IF($cek > 0) 
 	{
