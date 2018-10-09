@@ -61,7 +61,7 @@ IF(ISSET($_SESSION['name'])){
                           
     	    //Apro la connessione al DB del Report				  
            	//$conn= mysqli_connect($url,	$user, $psw,$nomeDB);
-           	$conn= mysqli_connect(dieffevtiger-read-replica.crcru1sebvf3.eu-central-1.rds.amazonaws.com, odbcdieffeuser, odbc, diffe_vtiger_2017);
+           	$conn= mysqli_connect('dieffevtiger-read-replica.crcru1sebvf3.eu-central-1.rds.amazonaws.com', "odbcdieffeuser", "odbc", "dieffe_vtiger_2017");
            	$query= mysqli_query($conn,$SQLdb);
            	$numeroRecord=mysqli_num_rows($query);
          
