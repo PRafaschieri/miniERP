@@ -49,7 +49,7 @@ IF(ISSET($_POST['login'])){
 	echo("sono nel login");
     $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
 	$data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
-	IF($cek > 0)
+	IF($cek > 0) 
 	{
 		
 		session_start();
