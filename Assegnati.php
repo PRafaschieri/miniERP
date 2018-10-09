@@ -61,37 +61,38 @@ IF(ISSET($_SESSION['name'])){
          
                 
          ?>
-     <tr>
+     <table>
+     	<tr>
 		
-        <td>
-		<p>Anno</p>
-		</td>
+            <td>
+    		<p>Anno</p>
+    		</td>
 
-        <td>
-		<p>Mese</p>
-		</td>
+            <td>
+    		<p>Mese</p>
+    		</td>
+    
+    		<td>
+    		<p>DieffeBot</p>
+    		</td>
+    
+    		<td>
+    		<p>Manzini</p>
+    		</td>
+            
+    		<td>
+    		<p>Sernagiotto</p>
+    		</td>
+    
+    		<td>
+    		<p>Badomer</p>
+    		</td>
+    		
+    		<td>
+    		<p>Vinti</p>
+    		</td>
 
-		<td>
-		<p>DieffeBot</p>
-		</td>
-
-		<td>
-		<p>Manzini</p>
-		</td>
-        
-		<td>
-		<p>Sernagiotto</p>
-		</td>
-
-		<td>
-		<p>Badomer</p>
-		</td>
-		
-		<td>
-		<p>Vinti</p>
-		</td>
-
-	</tr>
+		</tr>
 
 		<?php
 
