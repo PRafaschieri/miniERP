@@ -34,33 +34,33 @@
 
 <?php
 
-//include "db_con.php";
+include "db_con.php";
 /*$conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
 $strSQL= "select * from user";
 echo("sono nel PHP");
 $query= mysqli_query($conn,$strSQL);*/
-while($row= mysqli_fetch_assoc($query)){
+/*while($row= mysqli_fetch_assoc($query)){
     echo("sono nella query");
     echo($row['email']);
-}
+}*/
 IF(ISSET($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	echo("sono nel login");
     $cek = mysql_num_rows(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
-    
+    echo($cek);
 	$data = mysql_fetch_array(mysql_query("SELECT * FROM user WHERE email='$email' AND password='$password'"));
-	
+	echo($data);
 	IF($cek > 0) 
 	{
 		
 		session_start();
 		$_SESSION['email'] = $data['email'];
 		$_SESSION['name'] = $data['firstName'];
-		
+		echo("session");
 		echo "<script language=\"javascript\">alert(\"welcome \");document.location.href='userpage.php';</script>";
 	}else{
-	    
+	    echo("ciaone");
 		echo "<script language=\"javascript\">alert(\"Email o password non valida\");document.location.href='index.php';</script>";
 	}
 }
