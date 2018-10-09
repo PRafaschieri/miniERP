@@ -40,21 +40,17 @@ IF(ISSET($_SESSION['name'])){
         $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
         $strSQL="SELECT * FROM `user` JOIN `permit` on (`user`.`IdUser`=`permit`.`IdUser`) JOIN `report` on (`permit`.`IdReport`=`report`.IdReport) JOIN `database` on (`database`.IdDatabase=`report`.IdDatabase) WHERE denied=0 & email='".$_SESSION['email']."'";
         $query= mysqli_query($conn,$strSQL);
-        echo $strSQL;
-       	while($row= mysqli_fetch_assoc($query)){
-
-		/*
-                  <tr>
-                      <td><p><?php echo($row['CodiceCliente']);?></p></td> 
-                      <td><p><?php echo($row['Denominazione']);?></p></td>
-                      <td><p><?php echo($row['Indirizzo']);?></p></td>
-					  <td><p><?php echo($row['CAP']);?></p></td>
-                      <td><p><?php echo($row['Comune']);?></p></td>
-					  <td><p><?php echo($row['Provincia']);?></p></td>
+        
+       	while($row= mysqli_fetch_assoc($query)){?>
+		          <tr>
+                      <td><p><?php echo($row['email']);?></p></td> 
+                      <td><p><?php echo($row['firstName']);?></p></td>
+                      <td><p><?php echo($row['lastName']);?></p></td>
+					  
                       
                   </tr>
-         <?php*/
-       	    echo($row);
+         <?php
+       	    
     		}
             mysqli_close($conn);    
          ?>	
