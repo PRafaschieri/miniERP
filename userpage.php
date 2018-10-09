@@ -47,7 +47,7 @@ IF(ISSET($_SESSION['name'])){
             
            	while($row=mysqli_fetch_assoc($query)){?>
     		          
-                          <li><a href="<?php echo($row['nomeReport']."php") ?>">Report <?php echo($row['nomeReport']);?></a></li> 
+                          <li><a href="<?php echo($row['nomeReport'].".php") ?>">Report <?php echo($row['nomeReport']);?></a></li> 
                           
     					  
                           
