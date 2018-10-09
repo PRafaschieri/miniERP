@@ -46,7 +46,7 @@ IF(ISSET($_POST['login'])){
 	echo("sono nel login");
 	$strSQL= "select * from user where email='".$email."'";
 	$query= mysqli_query($conn,$strSQL);
-    $cek = mysql_num_rows($query);
+    $cek = mysqli_num_rows($query);
     echo($cek);
     $data = mysqli_fetch_assoc($query);
 	echo($data);
