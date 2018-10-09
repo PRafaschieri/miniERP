@@ -57,7 +57,7 @@ IF(ISSET($_POST['login'])){
 		session_start();
 		$_SESSION['email'] = $data['email'];
 		$_SESSION['name'] = $data['firstName'];
-		echo("session")
+		echo("session");
 		echo "<script language=\"javascript\">alert(\"welcome \");document.location.href='userpage.php';</script>";
 	}else{
 	    echo("ciaone");
