@@ -41,10 +41,11 @@ IF(ISSET($_POST['login'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-	$strSQL= "select * from user where email='".$email."'& password='".$password."'";
+	$strSQL= "select * from user where (email='".$email."')& (password='".$password."')";
+	echo($strSQL);
 	$query= mysqli_query($conn,$strSQL);
     $cek = mysqli_num_rows($query);
-   
+    
     $data = mysqli_fetch_assoc($query);
 	echo($data);
 	IF($cek > 0) 
