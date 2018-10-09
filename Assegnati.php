@@ -45,17 +45,19 @@ IF(ISSET($_SESSION['name'])){
             
             
            	$row=mysqli_fetch_assoc($query);
-           	$url=$row['ipUrl'];
-           	$nomeDB=$row['nome'];
-           	$user=$row['username'];
-           	$psw=$row['password'];
-           	$SQLdb=$row['query'];           
+           	$url="'".$row['ipUrl']."'";
+           	$nomeDB="'".$row['nome']."'";
+           	$user="'".$row['username']."'";
+           	$psw="'".$row['password']."'";
+           	$SQLdb=$row['query'];  
+           	echo $SQLdb;
     		          
            	mysqli_close($conn);
                           
     	    //Apro la connessione al DB del Report				  
            	$conn= mysqli_connect($url,	$user, $psw,$nomeDB);
            	$query= mysqli_query($conn,$SQLdb);
+           	$numeroRecord=mysqli_num_rows($query);
          
                 
          ?>
