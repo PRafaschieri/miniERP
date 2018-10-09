@@ -15,11 +15,12 @@
 
 </head>
 <body>
-<?php $conn= mysqli_connect('localhost',"root","Pasqua1506","DBClienti");
+<?php $conn= mysqli_connect('localhost',"root","Pasqua1506","miniERP");
 $strSQL= "select * from user";
 echo("sono nel PHP");
 $query= mysqli_query($conn,$strSQL);
 while($row= mysqli_fetch_assoc($query)){
+    echo("sono nella query");
     echo($row['email']);
 }?>
 <div class="container">
